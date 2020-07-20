@@ -1,0 +1,88 @@
+    /*
+    [1] border raduis
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    [2] box-shadow: Horizontal shadow | vertical shadow | blur | spread | color (outset/inset);
+        blur and spread cant be negative
+    [3] boz sizing
+        box-sizing: border-box; (new formula)
+        box-sizing: content-box; (defult one)
+    [4] text shadow
+        Horizontal shadow / vertical shadow / blur-raduis / color
+        text-shadow: none;      reset
+    [5] text overflow
+        text-overflow: clip;   defult
+        text-overflow: ellipsis;
+    [6] word wrap
+        word-wrap: normal; defult
+        word-wrap: break-word;
+    [7] 2D rotate
+        transform-rotate(30deg);        //can be possitive or negative
+    [8] 2D scale
+        transform: scale(width, height);
+    [9] 2D translate
+        transform: translate(width, height);
+    [10] 2D skew
+        transform: skew(x, y);
+        transform: skewX(30deg);
+        transform: skewY(30deg);
+    [11] 2D matrix
+        transform: matrix(scaleX(**),skewY(**),skewX(**),scaleY(**),translateX(**),translateY(**));
+    [12] 3D rotate
+        transform: rotateX(180deg);
+        transform: rotateY(180deg);
+    [13] 3D translate 
+        transform: translate3d(x, y, z);
+        transform: translatez(**) = transform: translate3d(0, 0, **);
+    [14] 3D scalr
+        transform: scale(x, y, z);
+    [15] 3D matrix
+        transform: matrix3d(n,n,n,n,n,n,n,n,n,n,n,n);       16n
+    [16]
+    [17]
+    */
+
+body{
+    perspective: 500px;
+}
+.father{
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    position: relative;
+    background-color: #fff;
+    transition: all .54s ease-in-out;
+    transform-style: preserve-3d;
+    color: black;
+}
+.father:hover{
+    transform: rotateY(180deg);
+
+}
+.father > div{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 300px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+}
+.front{
+    z-index: 2;
+    background-color: red;
+    backface-visibility: hidden;
+}
+.back{
+    z-index: 1;
+    background-color: blue;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+h1{
+    text-align: center;
+}
